@@ -6,9 +6,8 @@ namespace cs_calculator
 {
     class Program
     {
-        static void Main (string[] args)
+        public static void CalculateString (string s, bool debug_print = false)
         {
-            string s = "(-3 + 5) * 2 + 3 * 7";
             var queue = StaticParser.Parse (s);
 
             Console.WriteLine (String.Format ("Input: {0}", s));
@@ -19,14 +18,34 @@ namespace cs_calculator
                 return;
             }
 
-            //Console.WriteLine ("\nParsed input:");
-            //foreach (var token in queue)
-            //    Console.WriteLine ($"  {token}");
+            if (debug_print)
+            {
+                Console.WriteLine ("Parsed input:");
+                foreach (Token token in queue)
+                    Console.WriteLine (String.Format ("{0}", token.ToString ()));
+            }
 
             SortingStation.SortAndDie (queue);
-            Console.WriteLine ("\nSorted input:");
-            foreach (var token in queue)
-                Console.WriteLine ($"  {token}");
+
+            if (debug_print)
+            {
+                Console.WriteLine ("Sorted input:");
+                foreach (Token token in queue)
+                    Console.WriteLine (String.Format ("{0}", token.ToString ()));
+            }
+
+            double result = Calculator.CalculateAndDie (queue);
+
+            Console.WriteLine (String.Format ("Result: {0}\n", result));
+        }
+
+        static void Main (string[] args)
+        {
+            CalculateString ("(-3 + 5) * 2 + 3 * 7");
+            CalculateString ("(11 - 12 + 5 * 3 - 2 / 2) / 3", true);
+            CalculateString ("(-3 + 5) * 2 + 3 * 7");
+            CalculateString ("(-3 + 5) * 2 + 3 * 7");
+            CalculateString ("(-3 + 5) * 2 + 3 * 7");
         }
     }
 }
