@@ -8,7 +8,18 @@ namespace cs_calculator
     {
         static void Main (string[] args)
         {
-            InputParser.Parse ();
+            string s = "(-3 + 5) * 2 + 3 * 7";
+            var queue = InputParser.Parse (s);
+
+            if (queue == null)
+            {
+                Console.WriteLine ("Could not parse input");
+                return;
+            }
+
+            Console.WriteLine ("Parsed input:");
+            foreach (var token in queue)
+                Console.WriteLine ($"  {token}");
         }
     }
 }

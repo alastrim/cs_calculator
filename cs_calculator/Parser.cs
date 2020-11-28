@@ -216,18 +216,12 @@ namespace cs_calculator
 
     class InputParser
     {
-        public static void Parse ()
+        public static Queue<Token> Parse (string s)
         {
-            string s = Console.ReadLine ();
+            // string s = Console.ReadLine ();
             var parser = new Parser ();
             Queue<Token> queue = parser.Parse (s);
-            if (queue == null)
-                Console.WriteLine ("ERROR");
-            else
-            {
-                foreach (var token in queue)
-                    Console.WriteLine ($"  {token}");
-            }
+            return queue;
         }
     }
 }
