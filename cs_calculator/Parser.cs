@@ -29,6 +29,10 @@ namespace cs_calculator
                     return null;
             }
             ProcessEnd ();
+
+            if (_state == State.Ok)
+                SquashUnaryOperators ();
+
             return _state == State.Ok ? _queue : null;
         }
 
@@ -190,6 +194,33 @@ namespace cs_calculator
                             break;
                     }
                     break;
+            }
+        }
+
+        void SquashUnaryOperators ()
+        {
+            Token[] mem = new Token[_queue.Count];
+            _queue.CopyTo (mem, 0);
+            _queue.Clear ();
+
+            int sign = +1;
+            foreach (Token token in mem)
+            {
+                if (token is TokenNumber @tnumber)
+                {
+                    _queue.Enqueue (new TokenNumber (sign * tnumber.Value));
+                    continue;
+                }
+
+                sign = +1;
+
+                if (token is TokenOperator @toperator && (toperator.Type == OperatorType.UnaryMinus || toperator.Type == OperatorType.UnaryPlus))
+                {
+                    sign = toperator.Type != OperatorType.UnaryMinus ? +1 : -1;
+                    continue;
+                }
+
+                _queue.Enqueue (token);
             }
         }
 

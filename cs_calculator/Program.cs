@@ -4,6 +4,10 @@ using System.Text;
 
 namespace cs_calculator
 {
+    class SortingStation
+    {
+    }
+
     class Program
     {
         static void Main (string[] args)
