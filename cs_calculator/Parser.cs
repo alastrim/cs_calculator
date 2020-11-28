@@ -245,7 +245,7 @@ namespace cs_calculator
         }
     }
 
-    class InputParser
+    class StaticParser
     {
         public static Queue<Token> Parse (string s)
         {

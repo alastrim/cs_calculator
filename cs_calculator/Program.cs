@@ -6,6 +6,7 @@ namespace cs_calculator
 {
     class SortingStation
     {
+
     }
 
     class Program
@@ -13,7 +14,7 @@ namespace cs_calculator
         static void Main (string[] args)
         {
             string s = "(-3 + 5) * 2 + 3 * 7";
-            var queue = InputParser.Parse (s);
+            var queue = StaticParser.Parse (s);
 
             if (queue == null)
             {
