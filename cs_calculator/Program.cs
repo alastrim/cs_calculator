@@ -14,7 +14,7 @@ namespace cs_calculator
 
             if (queue == null)
             {
-                Console.WriteLine ("Could not parse input");
+                Console.WriteLine ("Could not parse input\n");
                 return;
             }
 
@@ -43,9 +43,16 @@ namespace cs_calculator
         {
             CalculateString ("(-3 + 5) * 2 + 3 * 7");
             CalculateString ("(11 - 12 + 5 * 3 - 2 / 2) / 3");
-            CalculateString ("(-3 + 5) * 2 + 3 * 7");
-            CalculateString ("(-3 + 5) * 2 + 3 * 7");
-            CalculateString ("(-3 + 5) * 2 + 3 * 7");
+            CalculateString ("8)");
+            CalculateString ("2 + 2 * 2");
+            CalculateString ("(23)");
+            CalculateString ("86 + 84 + 87 / (96 - 46) / 59");
+            CalculateString ("((((49)))) + ((46))");
+            CalculateString ("76 + 18 + 4 - (98) - 7 / 15");
+            CalculateString ("(((73)))");
+            CalculateString ("(55) - (54) * 55 + 92 - 13 - ((36))");
+            CalculateString ("(78) - (7 / 56 * 33)");
+            CalculateString ("(81) - 18 * (((8)) * 59 - 14)");
         }
     }
 }
