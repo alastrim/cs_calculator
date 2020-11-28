@@ -27,8 +27,8 @@ namespace cs_calculator
 
                 if (token is TokenOperator @toperator)
                 {
-                    double a = ((TokenNumber)m_memory_stack.Pop ()).Value;
                     double b = ((TokenNumber)m_memory_stack.Pop ()).Value;
+                    double a = ((TokenNumber)m_memory_stack.Pop ()).Value;
                     double c = 0;
 
                     switch (toperator.Type)

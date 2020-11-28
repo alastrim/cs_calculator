@@ -42,7 +42,7 @@ namespace cs_calculator
         static void Main (string[] args)
         {
             CalculateString ("(-3 + 5) * 2 + 3 * 7");
-            CalculateString ("(11 - 12 + 5 * 3 - 2 / 2) / 3", true);
+            CalculateString ("(11 - 12 + 5 * 3 - 2 / 2) / 3");
             CalculateString ("(-3 + 5) * 2 + 3 * 7");
             CalculateString ("(-3 + 5) * 2 + 3 * 7");
             CalculateString ("(-3 + 5) * 2 + 3 * 7");
